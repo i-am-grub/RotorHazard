@@ -2,18 +2,18 @@
 Plugin installation management
 """
 
-import os
 import io
-import sys
 import json
+import os
 import shutil
+import sys
 import zipfile
 from enum import IntEnum
 from pathlib import Path
 from typing import Any, Union
 
 import requests
-from gevent import subprocess, pool
+from gevent import pool, subprocess
 from packaging import version
 
 DEFAULT_DATA_URI = "https://rhcp.hazardcreative.com/v1/plugin/data.json"

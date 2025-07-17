@@ -1,10 +1,8 @@
 '''python -m unittest discover'''
-import sys
 import unittest
 
-sys.path.append('../interface')
+from rotorhazard.interface.Sensors import Sensors
 
-from Sensors import Sensors
 
 class SensorsTest(unittest.TestCase):
     def setUp(self):

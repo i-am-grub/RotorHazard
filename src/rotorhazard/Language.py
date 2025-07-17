@@ -1,9 +1,9 @@
 #
 # Translation functions
 #
-import logging
-import json
 import io
+import json
+import logging
 
 logger = logging.getLogger(__name__)
 

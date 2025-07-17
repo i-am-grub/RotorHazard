@@ -3,9 +3,10 @@
 #
 
 import logging
-from RHUtils import catchLogExceptionsWrapper
 from time import monotonic
-from eventmanager import Evt
+
+from rotorhazard.eventmanager import Evt
+from rotorhazard.RHUtils import catchLogExceptionsWrapper
 
 DEVICE_TIMEOUT = 30 # Consider devices if no response received within X seconds
 logger = logging.getLogger(__name__)

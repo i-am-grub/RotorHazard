@@ -30,8 +30,6 @@ import time
 import traceback
 from functools import reduce
 
-sys.path.append('util')  # needed at runtime to find RH_GPIO module
-
 Console_output_fn = print
 
 CHIP_IDS = {
@@ -724,8 +722,8 @@ class Stm32Bootloader:
 
 # Above code is from "stm32loader-0.5.1/stm32loader/bootloader.py"
 
-import serial
 import requests
+import serial
 
 DEF_SERIAL_PORT = "/dev/serial0"
 DEF_BINSRC_STR = "http://www.rotorhazard.com/fw/dev/current/RH_S32_BPill_node.bin"

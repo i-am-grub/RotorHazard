@@ -1,12 +1,11 @@
 '''Primary Race management class'''
 
 import copy
-import Config
-import RHRace
-import RHTimeFns
 import logging
-from eventmanager import Evt
-from led_event_manager import NoLEDManager
+
+from rotorhazard import Config, RHRace, RHTimeFns
+from rotorhazard.eventmanager import Evt
+from rotorhazard.led_event_manager import NoLEDManager
 
 logger = logging.getLogger(__name__)
 

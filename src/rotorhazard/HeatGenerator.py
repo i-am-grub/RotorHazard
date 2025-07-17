@@ -2,18 +2,18 @@
 # Heat generation handlers
 #
 
-from typing import List
-from RHUI import UIField
-from eventmanager import Evt
-from dataclasses import dataclass, asdict
-from enum import Enum
 import json
 import logging
 import random
-import RHUtils
-from RHUtils import catchLogExceptionsWrapper, cleanVarName
-from RHData import WinCondition
-from Database import ProgramMethod
+from dataclasses import dataclass
+from enum import Enum
+from typing import List
+
+from rotorhazard import RHUtils
+from rotorhazard.Database import ProgramMethod
+from rotorhazard.eventmanager import Evt
+from rotorhazard.RHUI import UIField
+from rotorhazard.RHUtils import catchLogExceptionsWrapper, cleanVarName
 
 logger = logging.getLogger(__name__)
 

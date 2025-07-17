@@ -2,13 +2,13 @@
 Global configurations
 '''
 import copy
-import logging
-import json
-import shutil
 import filecmp
-import time
-import os
 import glob
+import json
+import logging
+import os
+import shutil
+import time
 from datetime import datetime
 
 logger = logging.getLogger(__name__)

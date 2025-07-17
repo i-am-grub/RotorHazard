@@ -6,8 +6,8 @@ try:
     Real_GPIO_Zero_flag = False
     Real_RPi_GPIO_flag = False
     try:
-        import lgpio     #pylint: disable=import-error
         import gpiozero  #pylint: disable=import-error
+        import lgpio  #pylint: disable=import-error
         Real_GPIO_Zero_flag = True
     except:
         pass

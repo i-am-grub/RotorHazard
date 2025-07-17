@@ -1,22 +1,22 @@
 ''' Class to access race functions and details '''
+import copy
+import dataclasses
 import functools
-from Database import LapSource
+import inspect
+import json
+import logging
+
+from rotorhazard import RHUtils
+from rotorhazard.Database import LapSource
+from rotorhazard.eventmanager import Evt
+from rotorhazard.FlaskAppObj import APP
+from rotorhazard.RHUI import UIField, UIFieldType
 
 API_VERSION_MAJOR = 1
 API_VERSION_MINOR = 3
 
-import dataclasses
-import json
-import inspect
-import copy
-import logging
-import RHUtils
-from RHUI import UIField, UIFieldType
-from eventmanager import Evt
-
 logger = logging.getLogger(__name__)
 
-from FlaskAppObj import APP
 APP.app_context().push()
 
 class RHAPI():

@@ -1,7 +1,9 @@
 '''Dummy LED layer.'''
 
-from colorama import init, Fore, Cursor
 import logging
+
+from colorama import Cursor, Fore, init
+
 logger = logging.getLogger(__name__)
 
 class ANSIPixel:

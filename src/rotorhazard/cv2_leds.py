@@ -4,9 +4,11 @@
 # to use this emulator, run:
 #    sudo pip install opencv-python
 
-import numpy as np  #pylint: disable=import-error
-import cv2  #pylint: disable=import-error
 import logging
+
+import cv2  #pylint: disable=import-error
+import numpy as np  #pylint: disable=import-error
+
 logger = logging.getLogger(__name__)
 
 class cv2_LED_emulation:

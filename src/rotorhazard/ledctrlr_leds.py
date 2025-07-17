@@ -1,9 +1,11 @@
 '''LED Controller (via serial port) LED layer.'''
 
-import serial
-import time
-import gevent
 import logging
+import time
+
+import gevent
+import serial
+
 logger = logging.getLogger(__name__)
 
 ENC_STR = "utf-8"

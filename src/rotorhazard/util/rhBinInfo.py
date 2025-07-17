@@ -8,14 +8,10 @@
 
 import sys
 
-sys.path.append('../server')
-sys.path.append('../interface')
-sys.path.append('../../server')
-sys.path.append('../../interface')
+import rotorhazard.util.stm32loader as stm32loader
+from rotorhazard import RHUtils
+from rotorhazard.interface.RHInterface import RHInterface  #pylint: disable=import-error
 
-import RHUtils
-import util.stm32loader as stm32loader
-import RHInterface  #pylint: disable=import-error
 
 def showFirmwareBinInfo(fileStr):
     dataStr = None

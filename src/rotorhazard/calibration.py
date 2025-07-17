@@ -1,11 +1,12 @@
 '''Seat calibration adjustment'''
 
-import logging
 import json
-import RHUtils
-from eventmanager import Evt
-from RHUtils import catchLogExceptionsWrapper
-from filtermanager import Flt
+import logging
+
+from rotorhazard import RHUtils
+from rotorhazard.eventmanager import Evt
+from rotorhazard.filtermanager import Flt
+from rotorhazard.RHUtils import catchLogExceptionsWrapper
 
 logger = logging.getLogger(__name__)
 

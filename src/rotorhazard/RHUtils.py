@@ -1,20 +1,21 @@
 '''
 RotorHazard Helper and utility functions
 '''
-import os
-import sys
-import re
-import logging
-import platform
-import subprocess
-import glob
-import socket
-import random
-import numbers
 import functools
-import traceback
+import glob
+import logging
+import numbers
+import os
+import platform
+import random
+import re
 import shutil
-import util.RH_GPIO as RH_GPIO
+import socket
+import subprocess
+import sys
+import traceback
+
+import rotorhazard.util.RH_GPIO as RH_GPIO
 
 logger = logging.getLogger(__name__)
 

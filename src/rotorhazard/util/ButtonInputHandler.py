@@ -2,6 +2,7 @@
 
 import RH_GPIO  #pylint: disable=import-error
 
+
 class ButtonInputHandler:
     """ Handler for a button connected to a GPIO input pin """
     def __init__(self, gpioPinNum, logger, buttonPressedCallbackFn=None, \

@@ -1,8 +1,5 @@
-import sys
+from rotorhazard.interface.sensor import Reading, Sensor
 
-sys.path.append('../interface')
-
-from sensor import Sensor, Reading
 
 class StubSensor(Sensor):
     def __init__(self):

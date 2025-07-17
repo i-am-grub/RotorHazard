@@ -3,7 +3,8 @@ RotorHazard filter manager
 '''
 
 import logging
-from RHUtils import catchLogExceptionsWrapper
+
+from rotorhazard.RHUtils import catchLogExceptionsWrapper
 
 logger = logging.getLogger(__name__)
 

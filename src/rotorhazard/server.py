@@ -22,10 +22,10 @@ CMDARG_DATA_DIR = '--data'               # use given dir as data location
 # because there is a lot of code run through imports, and
 # we would miss messages otherwise.
 import logging
-import log
 from datetime import datetime
 from time import monotonic
-import RHTimeFns
+
+from rotorhazard import RHTimeFns, log
 
 log.early_stage_setup()
 logger = logging.getLogger(__name__)
@@ -46,25 +46,39 @@ _program_start_epoch_time = int((_prog_start_epoch1 + _prog_start_epoch2) * 500.
 logger.info('RotorHazard v{0}'.format(RELEASE_VERSION))
 
 # Normal importing resumes here
-import RHUtils  # need to import this early to get RH_GPIO initialized before gevent, etc
-from RHUtils import catchLogExceptionsWrapper
-
 import gevent.monkey
+
+from rotorhazard import (
+    RHUtils,  # need to import this early to get RH_GPIO initialized before gevent, etc
+)
+from rotorhazard.RHUtils import catchLogExceptionsWrapper
+
 gevent.monkey.patch_all()
 
-import io
-import os
-import sys
 import base64
-import subprocess
-import importlib
+
 # import copy
 import functools
+import importlib
+import io
+import os
 import signal
-import werkzeug
-import urllib3
+import subprocess
+import sys
 
-from flask import Flask, send_from_directory, request, make_response, Response, templating, redirect, abort, copy_current_request_context
+import urllib3
+import werkzeug
+from flask import (
+    Flask,
+    Response,
+    abort,
+    copy_current_request_context,
+    make_response,
+    redirect,
+    request,
+    send_from_directory,
+    templating,
+)
 from flask.blueprints import Blueprint
 from flask_socketio import SocketIO, emit
 
@@ -149,59 +163,70 @@ sys.path.append(PROGRAM_DIR + '/util')
 APP = Flask(__name__, static_url_path='/static')
 APP.app_context().push()
 
-import FlaskAppObj
+from rotorhazard import FlaskAppObj
+
 FlaskAppObj.set_flask_app(APP)
 
-import Database
+from rotorhazard import Database
+
 Database.initialize(_DB_URI)
 
-import socket
-import random
-import string
 import json
+import random
+import socket
+import string
 from pathlib import Path
 
 RHUtils.checkPythonVersion(MIN_PYTHON_MAJOR_VERSION, MIN_PYTHON_MINOR_VERSION)
 
-import Results
-import Language
-import json_endpoints
-import EventActions
-import RaceContext
-import RHData
-import RHUI
-import calibration
-import heat_automation
-import RHAPI
-from ClusterNodeSet import SecondaryNode, ClusterNodeSet
-import PageCache
-from util.ButtonInputHandler import ButtonInputHandler
-import util.stm32loader as stm32loader
-
-# Events manager
-from eventmanager import Evt, EventManager
-
-# Filter manager
-from filtermanager import FilterManager
+import rotorhazard.util.stm32loader as stm32loader
 
 # Plugin manager
-import requests
-from util.plugin_installation import PluginInstallationManager
+from rotorhazard import (
+    RHAPI,
+    RHUI,
+    EventActions,
+    Language,
+    PageCache,
+    RaceContext,
+    Results,
+    RHData,
+    calibration,
+    heat_automation,
+    json_endpoints,
+)
+from rotorhazard.ClusterNodeSet import ClusterNodeSet, SecondaryNode
+
+# Events manager
+from rotorhazard.eventmanager import EventManager, Evt
+
+# Filter manager
+from rotorhazard.filtermanager import FilterManager
 
 # LED imports
-from led_event_manager import LEDEventManager, NoLEDManager, ClusterLEDManager, LEDEvent, Color, ColorVal, ColorPattern
+from rotorhazard.led_event_manager import (
+    ClusterLEDManager,
+    Color,
+    ColorPattern,
+    ColorVal,
+    LEDEvent,
+    LEDEventManager,
+    NoLEDManager,
+)
+from rotorhazard.util.ButtonInputHandler import ButtonInputHandler
+from rotorhazard.util.plugin_installation import PluginInstallationManager
 
 sys.path.append(PROGRAM_DIR + '/../interface')
 sys.path.append('/home/pi/RotorHazard/src/interface')  # Needed to run on startup
 
-from Plugins import search_modules  #pylint: disable=import-error
-from Sensors import Sensors  #pylint: disable=import-error
-import RHRace
-from RHRace import WinCondition, RaceStatus
-from data_export import DataExportManager
-from data_import import DataImportManager
-from VRxControl import VRxControlManager
-from HeatGenerator import HeatGeneratorManager
+from rotorhazard import RHRace
+from rotorhazard.data_export import DataExportManager
+from rotorhazard.data_import import DataImportManager
+from rotorhazard.HeatGenerator import HeatGeneratorManager
+from rotorhazard.interface.Plugins import search_modules  #pylint: disable=import-error
+from rotorhazard.interface.Sensors import Sensors  #pylint: disable=import-error
+from rotorhazard.RHRace import RaceStatus, WinCondition
+from rotorhazard.VRxControl import VRxControlManager
 
 # Create shared context
 RaceContext = RaceContext.RaceContext(CONFIG_FILE_NAME, CFG_BKP_DIR_NAME)

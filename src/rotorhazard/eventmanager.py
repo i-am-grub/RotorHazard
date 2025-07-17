@@ -2,11 +2,13 @@
 RotorHazard event manager
 '''
 
-import logging
-import gevent
 import copy
-from RHUtils import catchLogExceptionsWrapper
+import logging
 from time import monotonic
+
+import gevent
+
+from rotorhazard.RHUtils import catchLogExceptionsWrapper
 
 logger = logging.getLogger(__name__)
 

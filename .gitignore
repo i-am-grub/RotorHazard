@@ -1,6 +1,9 @@
 # Compiled Python scripts
 *.pyc
 
+# Python builds
+*.egg-info
+
 # Development resources
 /.settings
 /.project

@@ -2,11 +2,12 @@
 # Data import handlers
 #
 
-from RHUtils import catchLogExceptionsWrapper, cleanVarName
-from typing import List
-from RHUI import UIField
-from eventmanager import Evt
 import logging
+from typing import List
+
+from rotorhazard.eventmanager import Evt
+from rotorhazard.RHUI import UIField
+from rotorhazard.RHUtils import catchLogExceptionsWrapper, cleanVarName
 
 logger = logging.getLogger(__name__)
 

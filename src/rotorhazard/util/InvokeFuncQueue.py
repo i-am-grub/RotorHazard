@@ -4,6 +4,7 @@
 
 import gevent
 
+
 class InvokeFuncQueue:
     """ Invokes a function sequentially, via a GEvent queue. """
 

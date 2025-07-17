@@ -11,13 +11,13 @@ Wires events to handlers
 '''
 
 import copy
-import RHRace
-import RHUtils
-from RHUtils import catchLogExceptionsWrapper, cleanVarName
-import gevent
-from eventmanager import Evt
-from collections import UserDict
 import logging
+
+import gevent
+
+from rotorhazard import RHRace, RHUtils
+from rotorhazard.eventmanager import Evt
+from rotorhazard.RHUtils import catchLogExceptionsWrapper, cleanVarName
 
 logger = logging.getLogger(__name__)
 

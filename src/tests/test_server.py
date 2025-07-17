@@ -1,21 +1,17 @@
 '''python -m unittest discover'''
 import os
-import sys
 import unittest
-import gevent
 from datetime import datetime
+
+import gevent
 from flask.blueprints import Blueprint
 
-sys.path.append('../server')
-sys.path.append('../server/util')
-sys.path.append('../server/plugins')
-sys.path.append('../interface')
+from rotorhazard import server
+from rotorhazard.interface.Node import Node
+from rotorhazard.RHUI import UIField, UIFieldType
 
 os.environ['RH_INTERFACE'] = 'Mock'
 
-import server
-from Node import Node
-from RHUI import UIField, UIFieldType
 
 class ServerTest(unittest.TestCase):
     def setUp(self):

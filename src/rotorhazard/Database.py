@@ -2,11 +2,14 @@
 Database module
 '''
 
+import logging
+
 import sqlalchemy
 from sqlalchemy import create_engine
-from sqlalchemy.orm import scoped_session, sessionmaker, declarative_base
-import RHUtils
-import logging
+from sqlalchemy.orm import declarative_base, scoped_session, sessionmaker
+
+from rotorhazard import RHUtils
+
 logger = logging.getLogger(__name__)
 
 DB_engine = None

@@ -1,15 +1,16 @@
-import io
-import sys
-import os
 import glob
+import io
 import logging
 import logging.handlers
+import os
 import platform
 import subprocess
+import sys
 import time
 import zipfile
-import gevent
 from datetime import datetime
+
+import gevent
 
 # Sample configuration:
 #     "LOGGING": {

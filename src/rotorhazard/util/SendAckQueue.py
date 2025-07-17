@@ -12,6 +12,7 @@
 
 import gevent
 
+
 class SendAckQueue:
     """ Operates a send-with-acknowledge emit queue """
 

@@ -2,9 +2,10 @@
 # Data export handlers
 #
 
-from RHUtils import catchLogExceptionsWrapper, cleanVarName
-from eventmanager import Evt
 import logging
+
+from rotorhazard.eventmanager import Evt
+from rotorhazard.RHUtils import catchLogExceptionsWrapper, cleanVarName
 
 logger = logging.getLogger(__name__)
 

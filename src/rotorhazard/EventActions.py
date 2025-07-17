@@ -1,11 +1,12 @@
-import logging
 import json
-from RHUtils import catchLogExceptionsWrapper, cleanVarName, getNumericEntry
-from eventmanager import Evt
+import logging
 from typing import List
-from RHUI import UIField
 
-from FlaskAppObj import APP
+from rotorhazard.eventmanager import Evt
+from rotorhazard.FlaskAppObj import APP
+from rotorhazard.RHUI import UIField
+from rotorhazard.RHUtils import catchLogExceptionsWrapper, cleanVarName, getNumericEntry
+
 APP.app_context().push()
 
 class EventActions:

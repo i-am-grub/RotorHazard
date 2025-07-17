@@ -1,9 +1,10 @@
 # JSON API
 import dataclasses
 import json
-import Results
-from sqlalchemy.ext.declarative import DeclarativeMeta
+
 from flask.blueprints import Blueprint
+from sqlalchemy.ext.declarative import DeclarativeMeta
+
 
 class AlchemyEncoder(json.JSONEncoder):
     def default(self, obj):  #pylint: disable=arguments-differ

@@ -10,13 +10,14 @@ if new data becomes available during the build process.
 
 import logging
 from time import monotonic
-from eventmanager import Evt
-import RHUtils
+
 import gevent
+
+from rotorhazard import FlaskAppObj, RHUtils
+from rotorhazard.eventmanager import Evt
 
 logger = logging.getLogger(__name__)
 
-import FlaskAppObj
 FlaskAppObj.APP.app_context().push()
 
 class PageCache:

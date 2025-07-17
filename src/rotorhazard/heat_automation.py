@@ -1,11 +1,13 @@
 '''Seeding and frequency automation for heats'''
 
+import json
 import logging
 import random
-import json
-import RHUtils
-from Database import ProgramMethod, HeatStatus
+
 from flask import request
+
+from rotorhazard import RHUtils
+from rotorhazard.Database import HeatStatus, ProgramMethod
 
 logger = logging.getLogger(__name__)
 

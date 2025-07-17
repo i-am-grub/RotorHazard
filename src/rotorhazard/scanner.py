@@ -1,15 +1,14 @@
 import gevent.monkey
+
 gevent.monkey.patch_all()
 
 import sys
-from flask import Flask, render_template
-from flask_socketio import SocketIO
 import webbrowser
 
-sys.path.append('../interface')
-sys.path.append('/home/pi/RotorHazard/src/interface')  # Needed to run on startup
+from flask import Flask, render_template
+from flask_socketio import SocketIO
 
-import RHInterface  #pylint: disable=import-error
+from rotorhazard.interface import RHInterface  #pylint: disable=import-error
 
 if len(sys.argv) < 2:
     print('Please specify serial port, e.g. COM12.')
