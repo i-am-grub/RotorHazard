@@ -1,12 +1,16 @@
 '''RotorHazard hardware interface layer.'''
 
-import os
 import logging
-import gevent # For threads and timing
-from time import monotonic # to capture read timing
+import os
+from time import monotonic  # to capture read timing
 
-from Plugins import Plugins
-from BaseHardwareInterface import BaseHardwareInterface, PeakNadirHistory
+import gevent  # For threads and timing
+
+from rotorhazard.interface.BaseHardwareInterface import (
+    BaseHardwareInterface,
+    PeakNadirHistory,
+)
+from rotorhazard.interface.Plugins import Plugins
 
 READ_ADDRESS = 0x00         # Gets i2c address of arduino (1 byte)
 READ_FREQUENCY = 0x03       # Gets channel frequency (2 byte)

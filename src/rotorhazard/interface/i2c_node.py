@@ -2,11 +2,22 @@
 import logging
 from time import monotonic
 
-from Node import Node
-from RHInterface import READ_ADDRESS, READ_REVISION_CODE, MAX_RETRY_COUNT, \
-                        READ_FW_VERSION, READ_FW_BUILDDATE, READ_FW_BUILDTIME, \
-                        FW_TEXT_BLOCK_SIZE, validate_checksum, calculate_checksum, \
-                        pack_16, unpack_16, READ_FW_PROCTYPE, SEND_STATUS_MESSAGE
+from rotorhazard.interface.Node import Node
+from rotorhazard.interface.RHInterface import (
+    FW_TEXT_BLOCK_SIZE,
+    MAX_RETRY_COUNT,
+    READ_ADDRESS,
+    READ_FW_BUILDDATE,
+    READ_FW_BUILDTIME,
+    READ_FW_PROCTYPE,
+    READ_FW_VERSION,
+    READ_REVISION_CODE,
+    SEND_STATUS_MESSAGE,
+    calculate_checksum,
+    pack_16,
+    unpack_16,
+    validate_checksum,
+)
 
 logger = logging.getLogger(__name__)
 

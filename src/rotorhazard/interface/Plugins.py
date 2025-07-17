@@ -1,7 +1,7 @@
 '''Generic plugin manager'''
 
-import logging
 import importlib
+import logging
 import pkgutil
 from collections import UserList
 

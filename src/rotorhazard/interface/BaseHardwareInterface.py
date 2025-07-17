@@ -1,6 +1,7 @@
-import gevent
 import logging
 from time import monotonic
+
+import gevent
 
 ENTER_AT_PEAK_MARGIN = 5 # closest that captured enter-at level can be to node peak RSSI
 CAP_ENTER_EXIT_AT_MILLIS = 3000  # number of ms for capture of enter/exit-at levels

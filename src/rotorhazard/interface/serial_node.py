@@ -1,17 +1,34 @@
 '''RotorHazard hardware interface layer.'''
 import logging
 import os
-import serial # For serial comms
-import gevent
 import time
 from time import monotonic
 
-from Node import Node
-from RHInterface import READ_REVISION_CODE, READ_MULTINODE_COUNT, MAX_RETRY_COUNT, \
-                        validate_checksum, calculate_checksum, pack_8, pack_16, unpack_8, unpack_16, \
-                        WRITE_CURNODE_INDEX, READ_CURNODE_INDEX, READ_NODE_SLOTIDX, \
-                        READ_FW_VERSION, READ_FW_BUILDDATE, READ_FW_BUILDTIME, FW_TEXT_BLOCK_SIZE, \
-                        JUMP_TO_BOOTLOADER, READ_FW_PROCTYPE, SEND_STATUS_MESSAGE
+import gevent
+import serial  # For serial comms
+
+from rotorhazard.interface.Node import Node
+from rotorhazard.interface.RHInterface import (
+    FW_TEXT_BLOCK_SIZE,
+    JUMP_TO_BOOTLOADER,
+    MAX_RETRY_COUNT,
+    READ_CURNODE_INDEX,
+    READ_FW_BUILDDATE,
+    READ_FW_BUILDTIME,
+    READ_FW_PROCTYPE,
+    READ_FW_VERSION,
+    READ_MULTINODE_COUNT,
+    READ_NODE_SLOTIDX,
+    READ_REVISION_CODE,
+    SEND_STATUS_MESSAGE,
+    WRITE_CURNODE_INDEX,
+    calculate_checksum,
+    pack_8,
+    pack_16,
+    unpack_8,
+    unpack_16,
+    validate_checksum,
+)
 
 BOOTLOADER_CHILL_TIME = 2 # Delay for USB to switch from bootloader to serial mode
 SERIAL_BAUD_RATES = [921600, 115200]

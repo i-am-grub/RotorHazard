@@ -1,6 +1,8 @@
 import logging
-from sensor import I2CSensor, Reading
+
 import ina219  # @UnresolvedImport pylint: disable=import-error
+
+from rotorhazard.interface.sensor import I2CSensor, Reading
 
 logger = logging.getLogger(__name__)
 

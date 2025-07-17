@@ -1,13 +1,16 @@
 '''RotorHazard I2C interface layer.'''
 
+
+import logging
+import os
+from time import monotonic
+
+import gevent
+
 try:
-    from smbus2 import SMBus # For i2c comms
+    from smbus2 import SMBus  # For i2c comms
 except:
     from smbus import SMBus
-import gevent
-import os
-import logging
-from time import monotonic
 
 I2C_CHILL_TIME = float(os.environ.get('RH_I2C_SLEEP', '0.015')) # Delay after i2c read/write
 

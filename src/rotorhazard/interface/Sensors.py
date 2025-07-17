@@ -1,4 +1,5 @@
-from Plugins import Plugins
+from rotorhazard.interface.Plugins import Plugins
+
 
 class Sensors(Plugins):
     def __init__(self):
