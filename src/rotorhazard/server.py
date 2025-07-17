@@ -191,17 +191,23 @@ from rotorhazard import (
     RaceContext,
     Results,
     RHData,
+    RHRace,
     calibration,
     heat_automation,
     json_endpoints,
 )
 from rotorhazard.ClusterNodeSet import ClusterNodeSet, SecondaryNode
+from rotorhazard.data_export import DataExportManager
+from rotorhazard.data_import import DataImportManager
 
 # Events manager
 from rotorhazard.eventmanager import EventManager, Evt
 
 # Filter manager
 from rotorhazard.filtermanager import FilterManager
+from rotorhazard.HeatGenerator import HeatGeneratorManager
+from rotorhazard.interface.Plugins import search_modules  #pylint: disable=import-error
+from rotorhazard.interface.Sensors import Sensors  #pylint: disable=import-error
 
 # LED imports
 from rotorhazard.led_event_manager import (
@@ -213,19 +219,9 @@ from rotorhazard.led_event_manager import (
     LEDEventManager,
     NoLEDManager,
 )
+from rotorhazard.RHRace import RaceStatus, WinCondition
 from rotorhazard.util.ButtonInputHandler import ButtonInputHandler
 from rotorhazard.util.plugin_installation import PluginInstallationManager
-
-sys.path.append(PROGRAM_DIR + '/../interface')
-sys.path.append('/home/pi/RotorHazard/src/interface')  # Needed to run on startup
-
-from rotorhazard import RHRace
-from rotorhazard.data_export import DataExportManager
-from rotorhazard.data_import import DataImportManager
-from rotorhazard.HeatGenerator import HeatGeneratorManager
-from rotorhazard.interface.Plugins import search_modules  #pylint: disable=import-error
-from rotorhazard.interface.Sensors import Sensors  #pylint: disable=import-error
-from rotorhazard.RHRace import RaceStatus, WinCondition
 from rotorhazard.VRxControl import VRxControlManager
 
 # Create shared context

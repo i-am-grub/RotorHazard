@@ -3,6 +3,7 @@
 
 # Python builds
 *.egg-info
+build
 
 # Development resources
 /.settings
