@@ -179,6 +179,8 @@ from pathlib import Path
 
 RHUtils.checkPythonVersion(MIN_PYTHON_MAJOR_VERSION, MIN_PYTHON_MINOR_VERSION)
 
+import rotorhazard.interface.MockInterface as mockinterfaceModule
+import rotorhazard.interface.RHInterface as rhinterfaceModule
 import rotorhazard.util.stm32loader as stm32loader
 
 # Plugin manager
@@ -3327,8 +3329,7 @@ def _do_init_rh_interface():
         rh_interface_name = os.environ.get('RH_INTERFACE', 'RH') + "Interface"
         try:
             logger.debug("Initializing interface module: " + rh_interface_name)
-            interfaceModule = importlib.import_module(rh_interface_name)
-            RaceContext.interface = interfaceModule.get_hardware_interface(config=RaceContext.serverconfig, \
+            RaceContext.interface = rhinterfaceModule.get_hardware_interface(config=RaceContext.serverconfig, \
                                             isS32BPillFlag=RHUtils.is_S32_BPill_board(), **HardwareHelpers)
             # if no nodes detected, system is RPi, not S32_BPill, and no serial port configured
             #  then check if problem is 'smbus2' or 'gevent' lib not installed
@@ -3384,8 +3385,7 @@ def _do_init_rh_interface():
                                        __("Unable to import library for serial node(s) - is 'pyserial' installed?"), \
                                        header='Warning', subclass='import-err')
             if (not RaceContext.interface) or (not RaceContext.interface.nodes) or len(RaceContext.interface.nodes) <= 0:
-                interfaceModule = importlib.import_module('MockInterface')
-                RaceContext.interface = interfaceModule.get_hardware_interface(config=RaceContext.serverconfig, **HardwareHelpers)
+                RaceContext.interface = mockinterfaceModule.get_hardware_interface(config=RaceContext.serverconfig, **HardwareHelpers)
                 for node in RaceContext.interface.nodes:  # put mock nodes at latest API level
                     node.api_level = NODE_API_BEST
                 set_ui_message(
